@@ -71,7 +71,7 @@ input:focus,select:focus{outline:none;border-color:#7C3AED}
       <label style="cursor:pointer;padding:5px 10px;border-radius:6px;border:1px solid #ffffff30;font-size:11px;color:#f5f5f0;display:flex;align-items:center;gap:5px">
         📂 Importar JSON<input type="file" accept=".json" id="import-json" style="display:none">
       </label>
-      <button onclick="exportJSON()" style="padding:6px 14px;border-radius:6px;border:none;background:#facc15;color:#1a1a1a;font-size:12px;font-weight:800;cursor:pointer;font-family:Inter,sans-serif;animation:pulse 2s infinite">💾 EXPORTAR JSON</button>
+      <button onclick="exportJSON()" style="padding:6px 14px;border-radius:6px;border:none;background:#facc15;color:#1a1a1a;font-size:12px;font-weight:800;cursor:pointer;font-family:Inter,sans-serif">💾 EXPORTAR JSON</button>
 
       <span id="save-status" style="font-size:11px;color:#4ade80;opacity:0;transition:opacity .4s;white-space:nowrap"></span>
       <span style="font-size:11px;opacity:.45;white-space:nowrap" id="hdr-info"></span>
@@ -707,8 +707,7 @@ async function saveState(manual){
   let ok = false;
   try{
     // salva em duas chaves independentes para redundância
-    await window.storage.set('rv_state', payload);
-    await window.storage.set('rv_state_backup', payload);
+    await supaSet(payload);
     ok = true;
   }catch(e){ console.warn('storage save error',e); }
 
@@ -750,21 +749,6 @@ async function loadState(){
     }
   }catch(e){ console.warn('supabase load error', e); }
 
-  // fallback: window.storage
-  try{
-    for(const key of ['rv_state','rv_state_backup']){
-      const r = await window.storage.get(key);
-      if(r && r.value){
-        const d = JSON.parse(r.value);
-        if(d.employees) S.employees = d.employees;
-        if(d.multCfg)   S.multCfg   = d.multCfg;
-        if(d.cfg)       S.cfg       = d.cfg;
-        if(d.old)       S.old       = d.old;
-        if(d.nid)       S.nid       = d.nid;
-        return true;
-      }
-    }
-  }catch(e){}
   return false;
 }
 
