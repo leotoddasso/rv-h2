@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>H2 — RV 2026</title>
+<title>H2 â RV 2026</title>
 <style>@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.6}}</style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
@@ -66,12 +66,12 @@ input:focus,select:focus{outline:none;border-color:#7C3AED}
 </head>
 <body>
 <div class="app">
-  <div class="hdr"><div><h1>Remuneração Variável — Grupo H2 · 2026<small>Planejamento Estratégico</small></h1></div>
+  <div class="hdr"><div><h1>RemuneraÃ§Ã£o VariÃ¡vel â Grupo H2 Â· 2026<small>Planejamento EstratÃ©gico</small></h1></div>
     <div style="margin-left:auto;display:flex;align-items:center;gap:12px">
       <label style="cursor:pointer;padding:5px 10px;border-radius:6px;border:1px solid #ffffff30;font-size:11px;color:#f5f5f0;display:flex;align-items:center;gap:5px">
-        📂 Importar JSON<input type="file" accept=".json" id="import-json" style="display:none">
+        ð Importar JSON<input type="file" accept=".json" id="import-json" style="display:none">
       </label>
-      <button onclick="exportJSON()" style="padding:6px 14px;border-radius:6px;border:none;background:#facc15;color:#1a1a1a;font-size:12px;font-weight:800;cursor:pointer;font-family:Inter,sans-serif;">💾 EXPORTAR JSON</button>
+      <button onclick="exportJSON()" style="padding:6px 14px;border-radius:6px;border:none;background:#facc15;color:#1a1a1a;font-size:12px;font-weight:800;cursor:pointer;font-family:Inter,sans-serif;">ð¾ EXPORTAR JSON</button>
 
       <span id="save-status" style="font-size:11px;color:#4ade80;opacity:0;transition:opacity .4s;white-space:nowrap"></span>
       <span style="font-size:11px;opacity:.45;white-space:nowrap" id="hdr-info"></span>
@@ -90,11 +90,11 @@ const COR={'C-level':0,'Head':1,'Gerente':2,'Especialista':3,'Principal':4,'Tech
 const CARGO_CLR={'C-level':'#059669','Head':'#2563EB','Gerente':'#EA580C','Especialista':'#EA580C','Principal':'#EA580C','Tech Lead':'#EA580C','Coord':'#9CA3AF'};
 const SENS=[50,60,70,80,90,100,110,120,130];
 const TABS=[
-  {id:'mt',lb:'🎯 Metas & Matriz'},
-  {id:'gr',lb:'📊 Grupo'},{id:'H2Bet',lb:'H2Bet',cl:'h2b'},
+  {id:'mt',lb:'ð¯ Metas & Matriz'},
+  {id:'gr',lb:'ð Grupo'},{id:'H2Bet',lb:'H2Bet',cl:'h2b'},
   {id:'Live',lb:'Live',cl:'liv'},{id:'SeuBet',lb:'SeuBet',cl:'seu'},
-  {id:'Poker Online',lb:'Poker Online',cl:'pok'},{id:'cp',lb:'⚖️ Comparação'},
-  {id:'pl',lb:'📋 Planilha'},
+  {id:'Poker Online',lb:'Poker Online',cl:'pok'},{id:'cp',lb:'âï¸ ComparaÃ§Ã£o'},
+  {id:'pl',lb:'ð Planilha'},
 ];
 
 let srt={col:null,dir:1};
@@ -102,15 +102,15 @@ let srt={col:null,dir:1};
 let S={
   tab:'mt', nid:66,
   employees:[
-    // H2Bet — C-level
+    // H2Bet â C-level
     {id:1, n:'Altair Arantes',              bu:'H2Bet',        ar:'Performance',   cg:'C-level',   ta:'Fim',  sal:50000},
-    {id:2, n:'Igor Trafane',                bu:'H2Bet',        ar:'Liderança',     cg:'C-level',   ta:'Fim',  sal:50000},
-    {id:3, n:'Ueltom Lima',                 bu:'H2Bet',        ar:'Liderança',     cg:'C-level',   ta:'Fim',  sal:50000},
+    {id:2, n:'Igor Trafane',                bu:'H2Bet',        ar:'LideranÃ§a',     cg:'C-level',   ta:'Fim',  sal:50000},
+    {id:3, n:'Ueltom Lima',                 bu:'H2Bet',        ar:'LideranÃ§a',     cg:'C-level',   ta:'Fim',  sal:50000},
     {id:4, n:'Fabiana Miranda',             bu:'H2Bet',        ar:'RH',            cg:'C-level',   ta:'Meio', sal:45000},
-    {id:5, n:'Jorge Breda',                 bu:'H2Bet',        ar:'Operações',     cg:'C-level',   ta:'Meio', sal:50000},
+    {id:5, n:'Jorge Breda',                 bu:'H2Bet',        ar:'OperaÃ§Ãµes',     cg:'C-level',   ta:'Meio', sal:50000},
     {id:6, n:'Juliano Dutra',               bu:'H2Bet',        ar:'Financeiro',    cg:'C-level',   ta:'Meio', sal:45000},
-    // H2Bet — Head
-    {id:7, n:'Leonardo Cavarge Martins',    bu:'H2Bet',        ar:'Operações',     cg:'Head',      ta:'Meio', sal:22000},
+    // H2Bet â Head
+    {id:7, n:'Leonardo Cavarge Martins',    bu:'H2Bet',        ar:'OperaÃ§Ãµes',     cg:'Head',      ta:'Meio', sal:22000},
     {id:8, n:'Rafael Rebelo',               bu:'H2Bet',        ar:'Compliance',    cg:'Head',      ta:'Fim',  sal:22000},
     {id:9, n:'Alex Scarelli',               bu:'H2Bet',        ar:'Tech',          cg:'Head',      ta:'Meio', sal:22000},
     {id:10,n:'William Westrup',             bu:'H2Bet',        ar:'Tech - Dados',  cg:'Head',      ta:'Meio', sal:22000},
@@ -119,46 +119,46 @@ let S={
     {id:13,n:'Henrique Yamagutt dos Anjos', bu:'H2Bet',        ar:'Marketing',     cg:'Head',      ta:'Fim',  sal:22000},
     {id:14,n:'Felipe Camara Mendina',       bu:'H2Bet',        ar:'Marketing',     cg:'Head',      ta:'Fim',  sal:22000},
     {id:15,n:'Vilmar Alves Toledo Junior',  bu:'H2Bet',        ar:'Tech',          cg:'Head',      ta:'Fim',  sal:22000},
-    // H2Bet — Gerente
-    {id:16,n:'Rayssa Brazão',               bu:'H2Bet',        ar:'Financeiro',    cg:'Gerente',   ta:'Meio', sal:15000},
-    {id:17,n:'Ana Paula Sanchez',           bu:'H2Bet',        ar:'Operações',     cg:'Gerente',   ta:'Meio', sal:13000},
-    {id:18,n:'Diogo Breda',                 bu:'H2Bet',        ar:'Operações',     cg:'Gerente',   ta:'Meio', sal:13000},
-    {id:19,n:'Luã Figueiredo',              bu:'H2Bet',        ar:'Operações',     cg:'Gerente',   ta:'Fim',  sal:13000},
+    // H2Bet â Gerente
+    {id:16,n:'Rayssa BrazÃ£o',               bu:'H2Bet',        ar:'Financeiro',    cg:'Gerente',   ta:'Meio', sal:15000},
+    {id:17,n:'Ana Paula Sanchez',           bu:'H2Bet',        ar:'OperaÃ§Ãµes',     cg:'Gerente',   ta:'Meio', sal:13000},
+    {id:18,n:'Diogo Breda',                 bu:'H2Bet',        ar:'OperaÃ§Ãµes',     cg:'Gerente',   ta:'Meio', sal:13000},
+    {id:19,n:'LuÃ£ Figueiredo',              bu:'H2Bet',        ar:'OperaÃ§Ãµes',     cg:'Gerente',   ta:'Fim',  sal:13000},
     {id:20,n:'Marcel Queiroz',              bu:'H2Bet',        ar:'Financeiro',    cg:'Gerente',   ta:'Fim',  sal:13000},
-    {id:21,n:'Flávio Benedetti',            bu:'H2Bet',        ar:'Financeiro',    cg:'Gerente',   ta:'Fim',  sal:13000},
+    {id:21,n:'FlÃ¡vio Benedetti',            bu:'H2Bet',        ar:'Financeiro',    cg:'Gerente',   ta:'Fim',  sal:13000},
     {id:22,n:'Adriano Mendes',              bu:'H2Bet',        ar:'Performance',   cg:'Gerente',   ta:'Fim',  sal:10000},
     {id:23,n:'Ana Barros',                  bu:'H2Bet',        ar:'Tech - Dados',  cg:'Gerente',   ta:'Fim',  sal:10000},
     {id:24,n:'Danilo Lacerda',              bu:'H2Bet',        ar:'Tech - Dados',  cg:'Gerente',   ta:'Fim',  sal:10000},
-    {id:25,n:'Estevão Moreno',              bu:'H2Bet',        ar:'Tech - Dados',  cg:'Gerente',   ta:'Meio', sal:10000},
+    {id:25,n:'EstevÃ£o Moreno',              bu:'H2Bet',        ar:'Tech - Dados',  cg:'Gerente',   ta:'Meio', sal:10000},
     {id:26,n:'Gabriel Delfino',             bu:'H2Bet',        ar:'Performance',   cg:'Gerente',   ta:'Fim',  sal:10000},
     {id:27,n:'Rafael Santana',              bu:'H2Bet',        ar:'Tech - Dados',  cg:'Gerente',   ta:'Meio', sal:10000},
     {id:28,n:'Kadu Herrera',                bu:'H2Bet',        ar:'Performance',   cg:'Gerente',   ta:'Fim',  sal:9000},
     {id:29,n:'Fernando Castellon',          bu:'H2Bet',        ar:'Marketing',     cg:'Gerente',   ta:'Fim',  sal:9000},
     {id:30,n:'Rafaela Perticarrari',        bu:'H2Bet',        ar:'Marketing',     cg:'Gerente',   ta:'Fim',  sal:9000},
     {id:31,n:'Raphael Burger',              bu:'H2Bet',        ar:'Marketing',     cg:'Gerente',   ta:'Fim',  sal:9000},
-    {id:32,n:'Rodrigo Gonçalves',           bu:'H2Bet',        ar:'Financeiro',    cg:'Gerente',   ta:'Fim',  sal:9000},
-    // H2Bet — Especialista
+    {id:32,n:'Rodrigo GonÃ§alves',           bu:'H2Bet',        ar:'Financeiro',    cg:'Gerente',   ta:'Fim',  sal:9000},
+    // H2Bet â Especialista
     {id:33,n:'Diego Macedo',                bu:'H2Bet',        ar:'Produto',       cg:'Especialista',ta:'Fim',sal:13000},
     {id:34,n:'Diego Marino Malacarne',      bu:'H2Bet',        ar:'Compliance',    cg:'Especialista',ta:'Fim',sal:13000},
     {id:35,n:'Isabela Rabello Martins Gallina',bu:'H2Bet',     ar:'Produto',       cg:'Especialista',ta:'Fim',sal:10000},
-    // H2Bet — Principal
+    // H2Bet â Principal
     {id:36,n:'Douglas de Siqueira Silva',   bu:'H2Bet',        ar:'Produto',       cg:'Principal', ta:'Meio', sal:10000},
     {id:37,n:'Felipe Ruiz Cavalcanti de Carvalho',bu:'H2Bet',  ar:'Produto',       cg:'Principal', ta:'Meio', sal:10000},
     {id:38,n:'Renata Bassi',                bu:'H2Bet',        ar:'Produto',       cg:'Principal', ta:'Meio', sal:9000},
-    // H2Bet — Tech Lead
+    // H2Bet â Tech Lead
     {id:39,n:'Rodrigo dos Santos Cruz',     bu:'H2Bet',        ar:'Tech',          cg:'Tech Lead', ta:'Meio', sal:10000},
     {id:40,n:'Augusto Rabelo',              bu:'H2Bet',        ar:'Tech',          cg:'Tech Lead', ta:'Fim',  sal:9000},
     {id:41,n:'Daniel Nakagawa',             bu:'H2Bet',        ar:'Tech',          cg:'Tech Lead', ta:'Meio', sal:9000},
-    {id:42,n:'Eric Magalhães',              bu:'H2Bet',        ar:'Tech',          cg:'Tech Lead', ta:'Fim',  sal:9000},
+    {id:42,n:'Eric MagalhÃ£es',              bu:'H2Bet',        ar:'Tech',          cg:'Tech Lead', ta:'Fim',  sal:9000},
     {id:43,n:'Felipe Raimo',                bu:'H2Bet',        ar:'Tech',          cg:'Tech Lead', ta:'Meio', sal:9000},
-    // H2Bet — Coord
+    // H2Bet â Coord
     {id:44,n:'Tamires Nascimento',          bu:'H2Bet',        ar:'Compliance',    cg:'Coord',     ta:'Fim',  sal:10000},
-    // Live — C-level
-    {id:45,n:'João Marcelo',                bu:'Live',         ar:'Liderança',     cg:'C-level',   ta:'Fim',  sal:45000},
-    // Live — Head
+    // Live â C-level
+    {id:45,n:'JoÃ£o Marcelo',                bu:'Live',         ar:'LideranÃ§a',     cg:'C-level',   ta:'Fim',  sal:45000},
+    // Live â Head
     {id:46,n:'Robinson Quiroga',            bu:'Live',         ar:'Live',          cg:'Head',      ta:'Fim',  sal:20000},
     {id:47,n:'Pedro Soares de Meirelles',   bu:'Live',         ar:'Live',          cg:'Head',      ta:'Meio', sal:20000},
-    // Live — Gerente
+    // Live â Gerente
     {id:48,n:'Aldo Dias',                   bu:'Live',         ar:'Live',          cg:'Gerente',   ta:'Fim',  sal:18000},
     {id:49,n:'Fernando Brunca',             bu:'Live',         ar:'Live',          cg:'Gerente',   ta:'Fim',  sal:18000},
     {id:50,n:'Eveline Marques',             bu:'Live',         ar:'Live',          cg:'Gerente',   ta:'Fim',  sal:13000},
@@ -166,22 +166,22 @@ let S={
     {id:52,n:'Luana Alves',                 bu:'Live',         ar:'Live',          cg:'Gerente',   ta:'Fim',  sal:13000},
     {id:53,n:'Ederson Contini',             bu:'Live',         ar:'Financeiro',    cg:'Gerente',   ta:'Fim',  sal:9000},
     {id:54,n:'Henrique Ferrari',            bu:'Live',         ar:'Live',          cg:'Gerente',   ta:'Fim',  sal:9000},
-    // Live — Coord
+    // Live â Coord
     {id:55,n:'Eduardo Sequela',             bu:'Live',         ar:'Financeiro',    cg:'Coord',     ta:'Meio', sal:9000},
     {id:56,n:'Isabela Santos',              bu:'Live',         ar:'Live',          cg:'Coord',     ta:'Fim',  sal:9000},
     {id:57,n:'Paula Porto',                 bu:'Live',         ar:'Live',          cg:'Coord',     ta:'Fim',  sal:9000},
-    // SeuBet — Head
+    // SeuBet â Head
     {id:58,n:'Vinicius Telles',             bu:'SeuBet',       ar:'SeuBet',        cg:'Head',      ta:'Fim',  sal:20000},
-    // SeuBet — Gerente
+    // SeuBet â Gerente
     {id:59,n:'Gabriel Silva',               bu:'SeuBet',       ar:'SeuBet',        cg:'Gerente',   ta:'Fim',  sal:13000},
     {id:60,n:'Rafael Parreira Soares',      bu:'SeuBet',       ar:'SeuBet',        cg:'Gerente',   ta:'Meio', sal:13000},
     {id:61,n:'Silvio Cardoso',              bu:'SeuBet',       ar:'SeuBet',        cg:'Gerente',   ta:'Fim',  sal:9000},
-    // Poker Online — Head
+    // Poker Online â Head
     {id:62,n:'Bruno Kawauti',               bu:'Poker Online', ar:'Poker Online',  cg:'Head',      ta:'Fim',  sal:20000},
-    // Poker Online — Coord
+    // Poker Online â Coord
     {id:63,n:'Carolina Mendes Bueno Selmi', bu:'Poker Online', ar:'Poker Online',  cg:'Coord',     ta:'Meio', sal:9000},
     {id:64,n:'George Matoso',               bu:'Poker Online', ar:'Poker Online',  cg:'Coord',     ta:'Meio', sal:7000},
-    // Poker Online — Tech Lead
+    // Poker Online â Tech Lead
     {id:65,n:'Wagner Almeida',              bu:'Poker Online', ar:'Tech',          cg:'Tech Lead', ta:'Fim',  sal:9000},
   ],
   // Matriz multiplicadores: por BU e por cargo (Fim / Meio)
@@ -197,7 +197,7 @@ let S={
     'SeuBet':      {rec:131000000,lb:12000000,meta:{emp:{p:30,a:100},bu:{p:40,a:100},ar:{p:30,a:100}},piso:80,teto:120,d360:{on:false,sc:3.7}},
     'Poker Online':{rec:32000000, lb:6000000, meta:{emp:{p:30,a:100},bu:{p:50,a:100},ar:{p:20,a:100}},piso:80,teto:120,d360:{on:false,sc:3.7}},
   },
-  // Modelo antigo para comparação — por cargo
+  // Modelo antigo para comparaÃ§Ã£o â por cargo
   old:{'C-level':{bl:4,v:8},'Head':{bl:2,v:4},'Gerente':{bl:1,v:2},'Especialista':{bl:1,v:2},'Principal':{bl:1,v:1},'Tech Lead':{bl:1,v:2},'Coord':{bl:1,v:1}}
 };
 
@@ -213,7 +213,7 @@ const P2=n=>(+n*100).toFixed(2)+'%';
 const P1=n=>(+n*100).toFixed(1)+'%';
 
 // calcs
-function bbу(bu){return S.employees.filter(e=>e.bu===bu);}
+function bbÑ(bu){return S.employees.filter(e=>e.bu===bu);}
 function atC(bu){const m=S.cfg[bu].meta,tp=m.emp.p+m.bu.p+m.ar.p;return tp?(m.emp.p*m.emp.a+m.bu.p*m.bu.a+m.ar.p*m.ar.a)/tp:0;}
 function det(sc){return sc>3.5?0:sc>=3?.1:.2}
 function bonAt(e,at){const c=S.cfg[e.bu];if(at<c.piso)return 0;const cap=Math.min(at,c.teto);let b=e.sal*(e.mult||2)*(cap/100);if(c.d360.on)b*=(1-det(c.d360.sc));return b;}
@@ -260,7 +260,7 @@ function mkDonut(id,labels,values,colors,total){
   mkChart(id,{type:'doughnut',data:{labels,datasets:[{data:values,backgroundColor:colors,borderWidth:2,borderColor:'#fff'}]},
     options:{responsive:true,maintainAspectRatio:false,cutout:'65%',
       plugins:{legend:{position:'bottom',labels:{font:{family:'Inter',size:11},boxWidth:10,padding:8}},
-        tooltip:{callbacks:{label:i=>` ${Rk(i.raw)} — ${P1(i.raw/(total||1))}`}},
+        tooltip:{callbacks:{label:i=>` ${Rk(i.raw)} â ${P1(i.raw/(total||1))}`}},
         datalabels:{color:'#fff',font:{family:'Inter',size:11,weight:'700'},formatter:v=>P1(v/(total||1)),display:ctx=>ctx.dataset.data[ctx.dataIndex]/(total||1)>.08}}}});
 }
 function mkLine(id,labels,datasets){
@@ -289,7 +289,7 @@ function drawGrp(){
   mkHBar('ch-bu-bar',BUS,BUS.map(bu=>poolBu(bu)),BUS.map(b=>BUC[b]));
   const fim=S.employees.filter(e=>e.ta==='Fim').reduce((s,e)=>s+bon(e),0);
   const meio=S.employees.filter(e=>e.ta==='Meio').reduce((s,e)=>s+bon(e),0);
-  mkDonut('ch-fm-grp',['Área Fim','Área Meio'],[fim,meio],['#7C3AED','#D1D5DB'],fim+meio);
+  mkDonut('ch-fm-grp',['Ãrea Fim','Ãrea Meio'],[fim,meio],['#7C3AED','#D1D5DB'],fim+meio);
   const cgs=grpByCg(S.employees);
   mkWaterfall('ch-wf-grp',cgs.map(([l,es])=>({l,v:es.reduce((s,e)=>s+bon(e),0)})),'#7C3AED');
   const ds=BUS.map(bu=>({label:bu,data:SENS.map(s=>poolBu(bu,s)),borderColor:BUC[bu],backgroundColor:BUC[bu]+'15',fill:false,tension:.3,pointRadius:3,borderWidth:2}));
@@ -297,12 +297,12 @@ function drawGrp(){
   mkLine('ch-sens-grp',SENS.map(s=>s+'%'),ds);
 }
 function drawBU(bu){
-  const es=bbу(bu),col=BUC[bu];
+  const es=bbÑ(bu),col=BUC[bu];
   const cgs=grpByCg(es);
   mkWaterfall(`ch-wf-${bid(bu)}`,cgs.map(([l,es2])=>({l,v:es2.reduce((s,e)=>s+bon(e),0)})),col);
   const fim=es.filter(e=>e.ta==='Fim').reduce((s,e)=>s+bon(e),0);
   const meio=es.filter(e=>e.ta==='Meio').reduce((s,e)=>s+bon(e),0);
-  mkDonut(`ch-fm-${bid(bu)}`,['Área Fim','Área Meio'],[fim,meio],[col,col+'55'],fim+meio);
+  mkDonut(`ch-fm-${bid(bu)}`,['Ãrea Fim','Ãrea Meio'],[fim,meio],[col,col+'55'],fim+meio);
   mkLine(`ch-sens-${bid(bu)}`,SENS.map(s=>s+'%'),[{label:bu,data:SENS.map(s=>poolBu(bu,s)),borderColor:col,backgroundColor:col+'25',fill:true,tension:.3,pointRadius:4,borderWidth:2,pointBackgroundColor:col}]);
 }
 function drawCp(){
@@ -332,12 +332,12 @@ function impactRows(groups,pool,rec,lb){
         <div class="pbar"><div class="pfill" style="width:${Math.min(100,plb*800)}%;background:${c}"></div></div></td></tr>`;}).join('');
 }
 
-// ——— PLANILHA ———
+// âââ PLANILHA âââ
 function tPl(){
   let es=[...S.employees];
   if(srt.col){es.sort((a,b)=>{let va=a[srt.col],vb=b[srt.col];return typeof va==='number'?(va-vb)*srt.dir:String(va).localeCompare(String(vb))*srt.dir;});}
   const fl=S.employees.reduce((s,e)=>s+e.sal,0);
-  const cols=[{k:'n',l:'Nome'},{k:'bu',l:'BU'},{k:'ar',l:'Área'},{k:'cg',l:'Cargo'},{k:'ta',l:'Tipo'},{k:'sal',l:'Salário'},{k:'mult',l:'Mult.'}];
+  const cols=[{k:'n',l:'Nome'},{k:'bu',l:'BU'},{k:'ar',l:'Ãrea'},{k:'cg',l:'Cargo'},{k:'ta',l:'Tipo'},{k:'sal',l:'SalÃ¡rio'},{k:'mult',l:'Mult.'}];
   const rows=es.map(e=>`<tr>
     <td><input type="text" value="${e.n}" data-id="${e.id}" data-f="n" class="ei" style="min-width:165px"></td>
     <td><select data-id="${e.id}" data-f="bu" class="ei">${BUS.map(b=>`<option${e.bu===b?' selected':''}>${b}</option>`).join('')}</select></td>
@@ -346,36 +346,36 @@ function tPl(){
     <td><select data-id="${e.id}" data-f="ta" class="ei" style="width:65px"><option${e.ta==='Fim'?' selected':''}>Fim</option><option${e.ta==='Meio'?' selected':''}>Meio</option></select></td>
     <td><input type="number" value="${e.sal}" data-id="${e.id}" data-f="sal" class="ei" style="width:100px"></td>
     <td><input type="number" value="${e.mult||2}" step=".5" data-id="${e.id}" data-f="mult" class="ei" style="width:60px"></td>
-    <td><button class="btn-x dx" data-id="${e.id}">✕</button></td></tr>`).join('');
+    <td><button class="btn-x dx" data-id="${e.id}">â</button></td></tr>`).join('');
   return`
   <div class="flex fac fjb mb3">
-    <div><div class="ptitle">Base de Elegíveis</div><div class="tip mt2">${S.employees.length} pessoas · Folha: ${R(fl)}/mês</div></div>
+    <div><div class="ptitle">Base de ElegÃ­veis</div><div class="tip mt2">${S.employees.length} pessoas Â· Folha: ${R(fl)}/mÃªs</div></div>
     <div class="flex gap2">
-      <label class="btn btn-ot" style="cursor:pointer">📁 CSV<input type="file" accept=".csv,.tsv" id="csvf" style="display:none"></label>
+      <label class="btn btn-ot" style="cursor:pointer">ð CSV<input type="file" accept=".csv,.tsv" id="csvf" style="display:none"></label>
       <button class="btn btn-dk" id="add-e">+ Pessoa</button>
     </div>
   </div>
   <div class="card"><div class="twrap">
     <table class="tbl"><thead><tr>
-      ${cols.map(c=>`<th data-sort="${c.k}" class="${srt.col===c.k?'srt':''}">${c.l}${srt.col===c.k?(srt.dir===1?' ↑':' ↓'):''}</th>`).join('')}<th></th>
+      ${cols.map(c=>`<th data-sort="${c.k}" class="${srt.col===c.k?'srt':''}">${c.l}${srt.col===c.k?(srt.dir===1?' â':' â'):''}</th>`).join('')}<th></th>
     </tr></thead><tbody>${rows}</tbody></table>
   </div></div>
   <div class="g4">
-    ${BUS.map(bu=>{const be=bbу(bu),sl=be.reduce((s,e)=>s+e.sal,0);return`<div class="kpi">
+    ${BUS.map(bu=>{const be=bbÑ(bu),sl=be.reduce((s,e)=>s+e.sal,0);return`<div class="kpi">
       <div class="kl">${bu}</div><div class="kv" style="color:${BUC[bu]}">${be.length} pessoas</div>
-      <div class="ks">Folha: ${R(sl)}/mês</div></div>`;}).join('')}
+      <div class="ks">Folha: ${R(sl)}/mÃªs</div></div>`;}).join('')}
   </div>
-  <p class="tip mt3">💡 Clique no cabeçalho para ordenar. Multiplicador sincroniza pela Matriz. Cargos: ${CARGOS.join(' · ')}</p>`;
+  <p class="tip mt3">ð¡ Clique no cabeÃ§alho para ordenar. Multiplicador sincroniza pela Matriz. Cargos: ${CARGOS.join(' Â· ')}</p>`;
 }
 
-// ——— METAS ———
+// âââ METAS âââ
 function tMt(){
   const totR=totRec(),totL=totLb();
   const buCards=BUS.map(bu=>{
     const c=S.cfg[bu],at=atC(bu),col=BUC[bu];
     const tp=c.meta.emp.p+c.meta.bu.p+c.meta.ar.p,ok=Math.abs(tp-100)<.5;
     const pool=poolBu(bu),dv=c.d360.on?det(c.d360.sc):0;
-    const esLocal=bbу(bu),cgsLocal=[...new Set(esLocal.map(e=>e.cg))].sort((a,b)=>(COR[a]??9)-(COR[b]??9));
+    const esLocal=bbÑ(bu),cgsLocal=[...new Set(esLocal.map(e=>e.cg))].sort((a,b)=>(COR[a]??9)-(COR[b]??9));
     return`<div class="card">
       <div class="ch"><div class="flex fac gap2"><div style="width:8px;height:8px;border-radius:50%;background:${col}"></div><span class="ct">${bu}</span></div>
         <span style="font-weight:700;font-size:13px;color:${col}">${Pp(at)}% ating.</span></div>
@@ -390,34 +390,34 @@ function tMt(){
             <span class="tip">Piso</span><input type="number" value="${c.piso}" style="width:60px" onchange="S.cfg['${bu}'].piso=+this.value;render()">
             <span class="tip">Teto</span><input type="number" value="${c.teto}" style="width:60px" onchange="S.cfg['${bu}'].teto=+this.value;render()">
             <span class="tip">%</span></div>
-          <div class="sec">Camadas <span style="color:${ok?'#059669':'#DC2626'};font-weight:400">(${Pp(tp)}% ${ok?'✓':'!'})</span></div>
+          <div class="sec">Camadas <span style="color:${ok?'#059669':'#DC2626'};font-weight:400">(${Pp(tp)}% ${ok?'â':'!'})</span></div>
           <table class="tbl mb3" style="font-size:12px">
             <thead><tr><th>Camada</th><th>Peso</th><th>Ating.</th></tr></thead>
             <tbody>
-              ${[{k:'emp',l:'🌐 Empresa'},{k:'bu',l:'🏢 BU'},{k:'ar',l:'🎯 Área'}].map(({k,l})=>{const m=c.meta[k];return`<tr><td>${l}</td>
+              ${[{k:'emp',l:'ð Empresa'},{k:'bu',l:'ð¢ BU'},{k:'ar',l:'ð¯ Ãrea'}].map(({k,l})=>{const m=c.meta[k];return`<tr><td>${l}</td>
                 <td><input type="number" value="${m.p}" min="0" max="100" style="width:55px" onchange="S.cfg['${bu}'].meta.${k}.p=+this.value;render()"></td>
                 <td><div class="flex fac gap2"><input type="number" value="${m.a}" min="0" max="200" style="width:60px" onchange="S.cfg['${bu}'].meta.${k}.a=+this.value;render()"><span class="tip">%</span></div></td></tr>`;}).join('')}
             </tbody>
           </table>
-          <div class="sec">Detrator 360°</div>
+          <div class="sec">Detrator 360Â°</div>
           <div class="flex fac gap3 mb3">
             <label class="flex fac gap2" style="cursor:pointer"><input type="checkbox" ${c.d360.on?'checked':''} onchange="S.cfg['${bu}'].d360.on=this.checked;render()"><span class="tip">Ativar</span></label>
             <input type="number" value="${c.d360.sc}" min="1" max="5" step=".1" style="width:55px" onchange="S.cfg['${bu}'].d360.sc=+this.value;render()">
-            <span style="font-size:11px;font-weight:600;color:${dv===0?'#059669':dv===.1?'#D97706':'#DC2626'}">${dv===0?'sem desc.':dv===.1?'−10%':'−20%'}</span>
+            <span style="font-size:11px;font-weight:600;color:${dv===0?'#059669':dv===.1?'#D97706':'#DC2626'}">${dv===0?'sem desc.':dv===.1?'â10%':'â20%'}</span>
           </div>
           <div style="padding:10px;background:#f9f9f6;border-radius:7px;border:1px solid #f0f0eb">
             <div class="flex fjb fac"><span class="tip">Pool (${Pp(at)}%)</span><span style="font-weight:700;color:${col}">${R(pool)}</span></div>
-            <div class="flex fjb fac mt2"><span class="tip">% Receita</span><span style="font-weight:600">${c.rec?P2(pool/c.rec):'—'}</span></div>
-            <div class="flex fjb fac mt2"><span class="tip">% Lucro Bruto</span><span style="font-weight:600;color:${semaforo(pool/c.lb)}">${c.lb?P2(pool/c.lb):'—'}</span></div>
+            <div class="flex fjb fac mt2"><span class="tip">% Receita</span><span style="font-weight:600">${c.rec?P2(pool/c.rec):'â'}</span></div>
+            <div class="flex fjb fac mt2"><span class="tip">% Lucro Bruto</span><span style="font-weight:600;color:${semaforo(pool/c.lb)}">${c.lb?P2(pool/c.lb):'â'}</span></div>
           </div>
         </div>
         <div>
           <div class="flex fjb fac mb2">
             <div class="sec" style="margin-bottom:0">Matriz de Multiplicadores</div>
-            <button class="btn btn-ot btn-sm" onclick="applyMatrix('${bu}');render()">↺ Aplicar</button>
+            <button class="btn btn-ot btn-sm" onclick="applyMatrix('${bu}');render()">âº Aplicar</button>
           </div>
           <table class="tbl">
-            <thead><tr><th>Cargo</th><th style="text-align:center">⚡ Fim</th><th style="text-align:center">⚙️ Meio</th></tr></thead>
+            <thead><tr><th>Cargo</th><th style="text-align:center">â¡ Fim</th><th style="text-align:center">âï¸ Meio</th></tr></thead>
             <tbody>
               ${cgsLocal.map(cg=>{const m=S.multCfg[bu][cg]||{F:1,M:1};return`<tr>
                 <td>${cgTag(cg)}</td>
@@ -428,17 +428,17 @@ function tMt(){
               </tr>`;}).join('')}
             </tbody>
           </table>
-          <p class="tip mt2">⚡ Fim = área de resultado · ⚙️ Meio = área de suporte</p>
+          <p class="tip mt2">â¡ Fim = Ã¡rea de resultado Â· âï¸ Meio = Ã¡rea de suporte</p>
         </div>
       </div></div>
     </div>`;}).join('');
 
   return`
-  <div class="ptitle mb3">Metas & Matriz de Multiplicadores · 2026</div>
+  <div class="ptitle mb3">Metas & Matriz de Multiplicadores Â· 2026</div>
   <div class="g2">${buCards}</div>
   <div class="card">
-    <div class="ch"><span class="ct">Matriz Consolidada — Grupo (todos os cargos × BUs)</span>
-      <button class="btn btn-ot btn-sm" onclick="applyAll();render()">↺ Aplicar Tudo</button></div>
+    <div class="ch"><span class="ct">Matriz Consolidada â Grupo (todos os cargos Ã BUs)</span>
+      <button class="btn btn-ot btn-sm" onclick="applyAll();render()">âº Aplicar Tudo</button></div>
     <div class="cb twrap">
       <table class="tbl">
         <thead><tr><th>Cargo</th>
@@ -449,15 +449,15 @@ function tMt(){
             if(!S.employees.some(e=>e.cg===cg))return'';
             return`<tr><td>${cgTag(cg)}</td>
               ${BUS.flatMap(bu=>{const m=S.multCfg[bu][cg];
-                return m?[`<td style="text-align:center;font-weight:700">${m.F}×</td>`,`<td style="text-align:center;color:#666">${m.M}×</td>`]:
-                          [`<td class="tip" style="text-align:center">—</td>`,`<td class="tip" style="text-align:center">—</td>`];}).join('')}
+                return m?[`<td style="text-align:center;font-weight:700">${m.F}Ã</td>`,`<td style="text-align:center;color:#666">${m.M}Ã</td>`]:
+                          [`<td class="tip" style="text-align:center">â</td>`,`<td class="tip" style="text-align:center">â</td>`];}).join('')}
             </tr>`;}).join('')}
         </tbody>
       </table>
     </div>
   </div>
   <div class="card">
-    <div class="ch"><span class="ct">Resumo — Grupo</span></div>
+    <div class="ch"><span class="ct">Resumo â Grupo</span></div>
     <div class="cb twrap">
       <table class="tbl">
         <thead><tr><th>BU</th><th class="num">Receita</th><th class="num">Lucro Bruto</th><th class="num">Ating.</th><th class="num">Pool</th><th class="num">Pool/Receita</th><th class="num">Pool/LB</th></tr></thead>
@@ -466,8 +466,8 @@ function tMt(){
             <td>${buT(bu)}</td><td class="num">${R(c.rec)}</td><td class="num">${R(c.lb)}</td>
             <td class="num" style="color:${BUC[bu]};font-weight:700">${Pp(at)}%</td>
             <td class="num" style="font-weight:600">${R(p)}</td>
-            <td class="num">${c.rec?P2(p/c.rec):'—'}</td>
-            <td class="num" style="font-weight:600;color:${semaforo(p/c.lb)}">${c.lb?P2(p/c.lb):'—'}</td></tr>`;}).join('')}
+            <td class="num">${c.rec?P2(p/c.rec):'â'}</td>
+            <td class="num" style="font-weight:600;color:${semaforo(p/c.lb)}">${c.lb?P2(p/c.lb):'â'}</td></tr>`;}).join('')}
           <tr class="tr-tot"><td>GRUPO</td><td class="num">${R(totR)}</td><td class="num">${R(totL)}</td><td></td>
             <td class="num">${R(poolAll())}</td><td class="num">${P2(poolAll()/totR)}</td>
             <td class="num" style="font-weight:700">${P2(poolAll()/totL)}</td></tr>
@@ -477,35 +477,35 @@ function tMt(){
   </div>`;
 }
 
-// ——— GRUPO ———
+// âââ GRUPO âââ
 function tGr(){
   const tot=poolAll(),rec=totRec(),lb=totLb(),n=S.employees.length;
   const cgs=grpByCg(S.employees);
   return`
   <div class="flex fac fjb mb3">
-    <div><div class="ptitle">Visão Consolidada — Grupo H2</div>
-    <div class="tip mt2">${n} elegíveis · ${BUS.length} BUs</div></div>
+    <div><div class="ptitle">VisÃ£o Consolidada â Grupo H2</div>
+    <div class="tip mt2">${n} elegÃ­veis Â· ${BUS.length} BUs</div></div>
   </div>
   <div class="g5 mb4">
     <div class="kpi"><div class="kl">Pool Total</div><div class="kv">${Rk(tot)}</div><div class="ks">${P2(tot/rec)} da receita</div></div>
-    <div class="kpi"><div class="kl">Receita Total</div><div class="kv">${Rk(rec)}</div><div class="ks">${n} elegíveis</div></div>
+    <div class="kpi"><div class="kl">Receita Total</div><div class="kv">${Rk(rec)}</div><div class="ks">${n} elegÃ­veis</div></div>
     <div class="kpi"><div class="kl">Lucro Bruto Total</div><div class="kv">${Rk(lb)}</div><div class="ks">estimado</div></div>
-    <div class="kpi"><div class="kl">Pool / Lucro Bruto</div><div class="kv" style="color:${semaforo(tot/lb)}">${P2(tot/lb)}</div><div class="ks">distribuição</div></div>
-    <div class="kpi"><div class="kl">Bônus Médio</div><div class="kv">${n?R(tot/n):'—'}</div><div class="ks">por elegível</div></div>
+    <div class="kpi"><div class="kl">Pool / Lucro Bruto</div><div class="kv" style="color:${semaforo(tot/lb)}">${P2(tot/lb)}</div><div class="ks">distribuiÃ§Ã£o</div></div>
+    <div class="kpi"><div class="kl">BÃ´nus MÃ©dio</div><div class="kv">${n?R(tot/n):'â'}</div><div class="ks">por elegÃ­vel</div></div>
   </div>
   <div class="g2 mb4">
-    <div class="card"><div class="ch"><span class="ct">Por Cargo — Impacto Financeiro</span></div>
+    <div class="card"><div class="ch"><span class="ct">Por Cargo â Impacto Financeiro</span></div>
       <div class="cb twrap"><table class="tbl">
         <thead><tr><th>Cargo</th><th class="num">N</th><th class="num">Pool</th><th class="num">% Pool</th><th class="num">% Receita</th><th class="num">% Lucro Bruto</th></tr></thead>
         <tbody>${impactRows(cgs,tot,rec,lb)}
           <tr class="tr-tot"><td>TOTAL</td><td class="num">${n}</td><td class="num">${R(tot)}</td>
             <td class="num">100%</td><td class="num">${P2(tot/rec)}</td><td class="num" style="font-weight:700">${P2(tot/lb)}</td></tr>
         </tbody></table></div></div>
-    <div class="card"><div class="ch"><span class="ct">Por BU — Impacto Financeiro</span></div>
+    <div class="card"><div class="ch"><span class="ct">Por BU â Impacto Financeiro</span></div>
       <div class="cb twrap"><table class="tbl">
         <thead><tr><th>BU</th><th class="num">N</th><th class="num">Pool</th><th class="num">% Pool</th><th class="num">% Receita</th><th class="num">% Lucro Bruto</th></tr></thead>
         <tbody>
-          ${BUS.map(bu=>{const p=poolBu(bu),c=S.cfg[bu],nb=bbу(bu).length,plb=c.lb?p/c.lb:0;return`<tr>
+          ${BUS.map(bu=>{const p=poolBu(bu),c=S.cfg[bu],nb=bbÑ(bu).length,plb=c.lb?p/c.lb:0;return`<tr>
             <td>${buT(bu)}</td><td class="num">${nb}</td><td class="num" style="font-weight:600">${R(p)}</td>
             <td class="num">${P1(p/tot)}</td><td class="num">${P2(c.rec?p/c.rec:0)}</td>
             <td class="num" style="font-weight:600;color:${semaforo(plb)}">${P2(plb)}</td></tr>`;}).join('')}
@@ -521,11 +521,11 @@ function tGr(){
   </div>
   <div class="card mb4"><div class="ch"><span class="ct">Cascata de Pool por Cargo</span></div>
     <div class="cb"><div class="cbox"><canvas id="ch-wf-grp"></canvas></div></div></div>
-  <div class="card mb4"><div class="ch"><span class="ct">Sensibilidade — Pool × Atingimento</span></div>
+  <div class="card mb4"><div class="ch"><span class="ct">Sensibilidade â Pool Ã Atingimento</span></div>
     <div class="cb"><div class="cbox"><canvas id="ch-sens-grp"></canvas></div></div></div>
   <div class="card"><div class="ch"><span class="ct">Sensibilidade (tabela)</span></div>
     <div class="cb twrap"><table class="tbl">
-      <thead><tr><th>Ating.</th>${BUS.map(bu=>`<th class="num">${bu}</th>`).join('')}<th class="num">Grupo</th><th class="num">Pool/Receita</th><th class="num">Pool/LB</th><th class="num">Bônus Médio</th></tr></thead>
+      <thead><tr><th>Ating.</th>${BUS.map(bu=>`<th class="num">${bu}</th>`).join('')}<th class="num">Grupo</th><th class="num">Pool/Receita</th><th class="num">Pool/LB</th><th class="num">BÃ´nus MÃ©dio</th></tr></thead>
       <tbody>
         ${SENS.map(sc=>{const ps=BUS.map(bu=>poolBu(bu,sc)),tp=ps.reduce((s,p)=>s+p,0);
           return`<tr${sc===100?' class="sens-hl"':''}>
@@ -533,13 +533,13 @@ function tGr(){
             ${ps.map(p=>`<td class="num">${R(p)}</td>`).join('')}
             <td class="num" style="font-weight:700">${R(tp)}</td>
             <td class="num">${P2(tp/rec)}</td><td class="num" style="font-weight:600">${P2(tp/lb)}</td>
-            <td class="num">${n?R(tp/n):'—'}</td></tr>`;}).join('')}
+            <td class="num">${n?R(tp/n):'â'}</td></tr>`;}).join('')}
       </tbody></table></div></div>`;
 }
 
-// ——— BU ———
+// âââ BU âââ
 function tBU(bu){
-  const es=bbу(bu),c=S.cfg[bu],at=atC(bu),col=BUC[bu];
+  const es=bbÑ(bu),c=S.cfg[bu],at=atC(bu),col=BUC[bu];
   const pool=poolBu(bu,at),nb=es.length,rec=c.rec,lb=c.lb;
   const fim=es.filter(e=>e.ta==='Fim').reduce((s,e)=>s+bon(e),0);
   const meio=es.filter(e=>e.ta==='Meio').reduce((s,e)=>s+bon(e),0);
@@ -551,20 +551,20 @@ function tBU(bu){
   <div class="flex fac gap3 mb4">
     <div style="width:4px;height:40px;border-radius:2px;background:${col}"></div>
     <div><div class="ptitle">${bu}</div>
-      <div class="tip mt2">${nb} elegíveis · Ating. composto: <strong style="color:${col}">${Pp(at)}%</strong></div></div>
+      <div class="tip mt2">${nb} elegÃ­veis Â· Ating. composto: <strong style="color:${col}">${Pp(at)}%</strong></div></div>
   </div>
   <div class="g5 mb4">
-    <div class="kpi"><div class="kl">Pool de Bônus</div><div class="kv" style="color:${col}">${R(pool)}</div><div class="ks">${rec?P2(pool/rec):'-'} da receita</div></div>
-    <div class="kpi"><div class="kl">Bônus Médio</div><div class="kv">${nb?R(pool/nb):'—'}</div><div class="ks">${nb} elegíveis</div></div>
+    <div class="kpi"><div class="kl">Pool de BÃ´nus</div><div class="kv" style="color:${col}">${R(pool)}</div><div class="ks">${rec?P2(pool/rec):'-'} da receita</div></div>
+    <div class="kpi"><div class="kl">BÃ´nus MÃ©dio</div><div class="kv">${nb?R(pool/nb):'â'}</div><div class="ks">${nb} elegÃ­veis</div></div>
     <div class="kpi"><div class="kl">Receita (Budget)</div><div class="kv">${Rk(rec)}</div><div class="ks">anual</div></div>
     <div class="kpi"><div class="kl">Lucro Bruto</div><div class="kv">${Rk(lb)}</div><div class="ks">estimado</div></div>
-    <div class="kpi"><div class="kl">Pool / Lucro Bruto</div><div class="kv" style="color:${semaforo(pool/lb)}">${lb?P2(pool/lb):'—'}</div>
+    <div class="kpi"><div class="kl">Pool / Lucro Bruto</div><div class="kv" style="color:${semaforo(pool/lb)}">${lb?P2(pool/lb):'â'}</div>
       <div class="pbar"><div class="pfill" style="width:${Math.min(100,(pool/lb)*500)}%;background:${semaforo(pool/lb)}"></div></div></div>
   </div>
   <div class="g2 mb4">
-    <div class="card"><div class="ch"><span class="ct">Por Área — Impacto sobre Resultado</span></div>
+    <div class="card"><div class="ch"><span class="ct">Por Ãrea â Impacto sobre Resultado</span></div>
       <div class="cb twrap"><table class="tbl">
-        <thead><tr><th>Área</th><th>Tipo</th><th class="num">N</th><th class="num">Pool</th><th class="num">% Pool</th><th class="num">% Receita</th><th class="num">% Lucro Bruto</th></tr></thead>
+        <thead><tr><th>Ãrea</th><th>Tipo</th><th class="num">N</th><th class="num">Pool</th><th class="num">% Pool</th><th class="num">% Receita</th><th class="num">% Lucro Bruto</th></tr></thead>
         <tbody>
           ${arEntries.map(([ar,ae])=>{const ap=ae.reduce((s,e)=>s+bon(e),0),ta=ae[0].ta,plb=lb?ap/lb:0;
             return`<tr><td style="font-weight:600">${ar}</td><td><span class="pill p${ta==='Fim'?'f':'m'}">${ta}</span></td>
@@ -574,7 +574,7 @@ function tBU(bu){
           <tr class="tr-tot"><td>TOTAL</td><td></td><td class="num">${nb}</td><td class="num">${R(pool)}</td>
             <td class="num">100%</td><td class="num">${P2(pool/rec)}</td><td class="num" style="font-weight:700">${P2(pool/lb)}</td></tr>
         </tbody></table></div></div>
-    <div class="card"><div class="ch"><span class="ct">Por Cargo — Impacto sobre Resultado</span></div>
+    <div class="card"><div class="ch"><span class="ct">Por Cargo â Impacto sobre Resultado</span></div>
       <div class="cb twrap"><table class="tbl">
         <thead><tr><th>Cargo</th><th class="num">N</th><th class="num">Pool</th><th class="num">% Pool</th><th class="num">% Receita</th><th class="num">% Lucro Bruto</th></tr></thead>
         <tbody>${impactRows(cgs,pool,rec,lb)}
@@ -588,11 +588,11 @@ function tBU(bu){
     <div class="card"><div class="ch"><span class="ct">Fim vs. Meio</span></div>
       <div class="cb"><div class="cbox"><canvas id="ch-fm-${id}"></canvas></div></div></div>
   </div>
-  <div class="card mb4"><div class="ch"><span class="ct">Sensibilidade — Pool × Atingimento</span></div>
+  <div class="card mb4"><div class="ch"><span class="ct">Sensibilidade â Pool Ã Atingimento</span></div>
     <div class="cb"><div class="cbox"><canvas id="ch-sens-${id}"></canvas></div></div></div>
   <div class="card mb4"><div class="ch"><span class="ct">Sensibilidade (tabela)</span></div>
     <div class="cb twrap"><table class="tbl">
-      <thead><tr><th>Ating.</th><th class="num">Pool</th><th class="num">Pool/Rec.</th><th class="num">Pool/LB</th><th class="num">Bônus Médio</th>
+      <thead><tr><th>Ating.</th><th class="num">Pool</th><th class="num">Pool/Rec.</th><th class="num">Pool/LB</th><th class="num">BÃ´nus MÃ©dio</th>
         ${cgs.map(([l])=>`<th class="num">${l}</th>`).join('')}</tr></thead>
       <tbody>
         ${SENS.map(sc=>{const p=poolBu(bu,sc),plb=lb?p/lb:0;
@@ -600,39 +600,39 @@ function tBU(bu){
             <td><strong>${sc}%</strong>${sc===100?' <span class="tip">(base)</span>':''}</td>
             <td class="num">${R(p)}</td><td class="num">${P2(rec?p/rec:0)}</td>
             <td class="num" style="font-weight:600">${P2(plb)}</td>
-            <td class="num">${nb?R(p/nb):'—'}</td>
+            <td class="num">${nb?R(p/nb):'â'}</td>
             ${cgs.map(([,ng])=>`<td class="num">${R(ng.reduce((s,e)=>s+bonAt(e,sc),0))}</td>`).join('')}
           </tr>`;}).join('')}
       </tbody></table></div></div>
-  <div class="card"><div class="ch"><span class="ct">Pessoas — ${bu}</span></div>
+  <div class="card"><div class="ch"><span class="ct">Pessoas â ${bu}</span></div>
     <div class="cb twrap"><table class="tbl">
-      <thead><tr><th>Nome</th><th>Cargo</th><th>Área</th><th>Tipo</th><th class="num">Salário</th><th class="num">Mult.</th><th class="num">Bônus</th><th class="num">Bônus Máx</th></tr></thead>
+      <thead><tr><th>Nome</th><th>Cargo</th><th>Ãrea</th><th>Tipo</th><th class="num">SalÃ¡rio</th><th class="num">Mult.</th><th class="num">BÃ´nus</th><th class="num">BÃ´nus MÃ¡x</th></tr></thead>
       <tbody>
         ${[...es].sort((a,b)=>(COR[a.cg]??9)-(COR[b.cg]??9)).map(e=>{const bv=bon(e),bm=bonAt(e,c.teto);
           return`<tr><td style="font-weight:500">${e.n}</td><td>${cgTag(e.cg)}</td><td>${e.ar}</td>
             <td><span class="pill p${e.ta==='Fim'?'f':'m'}">${e.ta}</span></td>
-            <td class="num">${R(e.sal)}</td><td class="num">${(+(e.mult||2)).toFixed(1)}×</td>
+            <td class="num">${R(e.sal)}</td><td class="num">${(+(e.mult||2)).toFixed(1)}Ã</td>
             <td class="num" style="font-weight:700;color:${col}">${R(bv)}</td>
             <td class="num tip">${R(bm)}</td></tr>`;}).join('')}
       </tbody></table></div></div>`;
 }
 
-// ——— COMPARAÇÃO ———
+// âââ COMPARAÃÃO âââ
 function tCp(){
   function oldB(e,sc){const om=S.old[e.cg]||{bl:1,v:1};if(sc<100)return 0;return e.sal*(om.bl+om.v*Math.min(sc/100,1.2));}
   const scens=[80,90,100,110,120];
   return`
-  <div class="ptitle mb4">Comparação de Modelos</div>
-  <div class="card mb4"><div class="ch"><span class="ct">Pool Total — Modelo Antigo (Baseline+Variável) vs. Novo (Mult×Ating.)</span></div>
+  <div class="ptitle mb4">ComparaÃ§Ã£o de Modelos</div>
+  <div class="card mb4"><div class="ch"><span class="ct">Pool Total â Modelo Antigo (Baseline+VariÃ¡vel) vs. Novo (MultÃAting.)</span></div>
     <div class="cb"><div class="cbox"><canvas id="ch-comp"></canvas></div></div></div>
-  <div class="card mb4"><div class="ch"><span class="ct">Pool por BU × Cenário</span></div>
+  <div class="card mb4"><div class="ch"><span class="ct">Pool por BU Ã CenÃ¡rio</span></div>
     <div class="cb twrap"><table class="tbl">
       <thead>
         <tr><th>BU</th><th class="num">N</th>${scens.map(s=>`<th class="num" colspan="2">${s}%</th>`).join('')}</tr>
         <tr><th></th><th></th>${scens.map(()=>'<th class="num" style="font-size:10px;color:#aaa">Antigo</th><th class="num" style="font-size:10px;color:#7C3AED">Novo</th>').join('')}</tr>
       </thead>
       <tbody>
-        ${BUS.map(bu=>{const es2=bbу(bu);return`<tr><td>${buT(bu)}</td><td class="num">${es2.length}</td>
+        ${BUS.map(bu=>{const es2=bbÑ(bu);return`<tr><td>${buT(bu)}</td><td class="num">${es2.length}</td>
           ${scens.map(sc=>{const op=es2.reduce((s,e)=>s+oldB(e,sc),0),np=poolBu(bu,sc),d=np-op;
             return`<td class="num">${R(op)}</td><td class="num" style="font-weight:600;color:${BUC[bu]}">${R(np)}<div style="font-size:10px;color:${d>=0?'#059669':'#DC2626'}">${d>=0?'+':''}${R(d)}</div></td>`;}).join('')}</tr>`;}).join('')}
         <tr class="tr-tot"><td>GRUPO</td><td class="num">${S.employees.length}</td>
@@ -641,17 +641,17 @@ function tCp(){
         </tr>
       </tbody></table></div></div>
   <div class="g2">
-    <div class="card"><div class="ch"><span class="ct">Parâmetros — Modelo Antigo (editável)</span></div>
+    <div class="card"><div class="ch"><span class="ct">ParÃ¢metros â Modelo Antigo (editÃ¡vel)</span></div>
       <div class="cb"><table class="tbl">
-        <thead><tr><th>Cargo</th><th class="num">Baseline (×sal.)</th><th class="num">Variável Máx (×sal.)</th></tr></thead>
+        <thead><tr><th>Cargo</th><th class="num">Baseline (Ãsal.)</th><th class="num">VariÃ¡vel MÃ¡x (Ãsal.)</th></tr></thead>
         <tbody>
           ${CARGOS.map(cg=>{const v=S.old[cg]||{bl:1,v:1};return`<tr><td>${cgTag(cg)}</td>
             <td class="num"><input type="number" value="${v.bl}" step=".5" style="width:70px" onchange="if(!S.old['${cg}'])S.old['${cg}']={bl:1,v:1};S.old['${cg}'].bl=+this.value;render()"></td>
             <td class="num"><input type="number" value="${v.v}" step=".5" style="width:70px" onchange="if(!S.old['${cg}'])S.old['${cg}']={bl:1,v:1};S.old['${cg}'].v=+this.value;render()"></td></tr>`;}).join('')}
         </tbody></table></div></div>
-    <div class="card"><div class="ch"><span class="ct">Bônus Médio por Cargo — 100% Atingimento</span></div>
+    <div class="card"><div class="ch"><span class="ct">BÃ´nus MÃ©dio por Cargo â 100% Atingimento</span></div>
       <div class="cb twrap"><table class="tbl">
-        <thead><tr><th>Cargo</th><th class="num">N</th><th class="num">Antigo</th><th class="num">Novo</th><th class="num">Δ</th></tr></thead>
+        <thead><tr><th>Cargo</th><th class="num">N</th><th class="num">Antigo</th><th class="num">Novo</th><th class="num">Î</th></tr></thead>
         <tbody>
           ${CARGOS.map(cg=>{const ne=S.employees.filter(e=>e.cg===cg);if(!ne.length)return'';
             const op=ne.reduce((s,e)=>s+(oldB(e,100)||0),0)/ne.length,np=ne.reduce((s,e)=>s+bonAt(e,100),0)/ne.length,d=np-op;
@@ -662,8 +662,8 @@ function tCp(){
   </div>`;
 }
 
-// ——— RENDER ———
-// ——— SUPABASE CONFIG ———
+// âââ RENDER âââ
+// âââ SUPABASE CONFIG âââ
 
 const SUPA_URL = 'https://yalkxizeieqiuqekwzlr.supabase.co';
 const SUPA_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlhbGt4aXplaWVxaXVxZWt3emxyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM3NjY0MjIsImV4cCI6MjA4OTM0MjQyMn0.klPiWay1tme0v3DbsU6_mpWkwrYv_7hjeqYN3_26waw';
@@ -690,7 +690,7 @@ async function supaGet(){
   return rows && rows.length ? rows[0] : null;
 }
 
-// ——— PERSISTÊNCIA ———
+// âââ PERSISTÃNCIA âââ
 function statePayload(){
   return JSON.stringify({
     v:2,
@@ -707,7 +707,7 @@ async function saveState(manual){
   const payload = statePayload();
   let ok = false;
   try{
-    // salva em duas chaves independentes para redundância
+    // salva em duas chaves independentes para redundÃ¢ncia
     await window.storage.set('rv_state', payload);
     await window.storage.set('rv_state_backup', payload);
     ok = true;
@@ -717,7 +717,7 @@ async function saveState(manual){
   const el = document.getElementById('save-status');
   if(el){
     if(ok){
-      el.textContent = `✓ Salvo às ${ts}`;
+      el.textContent = `â Salvo Ã s ${ts}`;
       el.style.color = '#4ade80';
     } else {
       el.style.opacity = '0';
@@ -742,7 +742,7 @@ async function loadState(){
       const el = document.getElementById('save-status');
       if(el && row.updated_at){
         const dt = new Date(row.updated_at).toLocaleString('pt-BR');
-        el.textContent = `✓ Recuperado — último save: ${dt}`;
+        el.textContent = `â Recuperado â Ãºltimo save: ${dt}`;
         el.style.color = '#4ade80'; el.style.opacity = '1';
         setTimeout(()=>{ el.style.opacity='0'; }, 5000);
       }
@@ -774,11 +774,11 @@ function exportJSON(){
   const overlay = document.createElement('div');
   overlay.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:9999;display:flex;align-items:center;justify-content:center';
   overlay.innerHTML=`<div style="background:#fff;border-radius:10px;padding:24px;width:640px;max-width:92vw;font-family:Inter,sans-serif">
-    <div style="font-size:14px;font-weight:700;margin-bottom:6px">💾 Backup JSON</div>
+    <div style="font-size:14px;font-weight:700;margin-bottom:6px">ð¾ Backup JSON</div>
     <div style="font-size:12px;color:#666;margin-bottom:12px">Clique em <strong>Selecionar Tudo</strong>, depois <strong>Ctrl+C</strong>, abra o Notepad e cole. Salve como <code>rv_h2.json</code></div>
     <textarea id="json-out" style="width:100%;height:260px;font-size:10px;font-family:monospace;border:1px solid #e5e5e0;border-radius:6px;padding:8px;resize:none" readonly>${data}</textarea>
     <div style="display:flex;gap:8px;margin-top:12px">
-      <button onclick="document.getElementById('json-out').select();document.execCommand('copy');this.textContent='✓ Copiado!';this.style.background='#059669'"
+      <button onclick="document.getElementById('json-out').select();document.execCommand('copy');this.textContent='â Copiado!';this.style.background='#059669'"
         style="padding:8px 18px;background:#1a1a1a;color:#fff;border:none;border-radius:6px;cursor:pointer;font-family:Inter,sans-serif;font-weight:600">
         Selecionar Tudo e Copiar
       </button>
@@ -802,7 +802,7 @@ async function importJSON(file){
     if(d.nid)       S.nid       = d.nid;
     await saveState(true);
     render();
-  }catch(e){ alert('Arquivo inválido.'); }
+  }catch(e){ alert('Arquivo invÃ¡lido.'); }
 }
 
 function render(){
@@ -813,7 +813,7 @@ function render(){
   else if(S.tab==='gr')pg.innerHTML=tGr();
   else if(BUS.includes(S.tab))pg.innerHTML=tBU(S.tab);
   else if(S.tab==='cp')pg.innerHTML=tCp();
-  document.getElementById('hdr-info').textContent=`${S.employees.length} elegíveis · Pool: ${R(poolAll())}`;
+  document.getElementById('hdr-info').textContent=`${S.employees.length} elegÃ­veis Â· Pool: ${R(poolAll())}`;
   bindEvt();
   setTimeout(drawCharts,100);
   saveState(false).then(()=>{});
@@ -822,7 +822,7 @@ function render(){
 }
 
 function bindEvt(){
-  document.querySelectorAll('.tb').forEach(b=>b.addEventListener('click',()=>{S.tab=b.dataset.tab;// Inicializa: tenta carregar estado salvo, senão usa defaults
+  document.querySelectorAll('.tb').forEach(b=>b.addEventListener('click',()=>{S.tab=b.dataset.tab;// Inicializa: tenta carregar estado salvo, senÃ£o usa defaults
 loadState().then(()=>{ applyAll(); render(); });}));
   document.querySelectorAll('.ei').forEach(inp=>inp.addEventListener('change',()=>{
     const id=+inp.dataset.id,f=inp.dataset.f,e=S.employees.find(x=>x.id===id);
@@ -830,8 +830,8 @@ loadState().then(()=>{ applyAll(); render(); });}));
       e[f]=(f==='sal'||f==='mult')?+inp.value:inp.value;
       if(['cg','ta','bu'].includes(f)){const m=S.multCfg[e.bu]?.[e.cg];if(m)e.mult=(e.ta==='Fim'?m.F:m.M);}
     }
-    document.getElementById('hdr-info').textContent=`${S.employees.length} elegíveis · Pool: ${R(poolAll())}`;
-    saveState(false); // salva a cada mudança de input
+    document.getElementById('hdr-info').textContent=`${S.employees.length} elegÃ­veis Â· Pool: ${R(poolAll())}`;
+    saveState(false); // salva a cada mudanÃ§a de input
     if(S.tab!=='pl')render();
   }));
   document.querySelectorAll('.dx').forEach(b=>b.addEventListener('click',()=>{S.employees=S.employees.filter(e=>e.id!==+b.dataset.id);render();}));
@@ -840,7 +840,7 @@ loadState().then(()=>{ applyAll(); render(); });}));
   }));
   const ae=document.getElementById('add-e');
   if(ae)ae.addEventListener('click',()=>{
-    const e={id:S.nid++,n:'Novo Elegível',bu:'H2Bet',ar:'',cg:'Gerente',ta:'Fim',sal:10000};
+    const e={id:S.nid++,n:'Novo ElegÃ­vel',bu:'H2Bet',ar:'',cg:'Gerente',ta:'Fim',sal:10000};
     e.mult=S.multCfg['H2Bet']['Gerente']?.F||2;S.employees.push(e);render();
   });
   const csvf=document.getElementById('csvf');
@@ -854,7 +854,7 @@ function parseCSV(txt){
   const lines=txt.trim().split('\n');if(lines.length<2)return;
   const sep=lines[0].includes('\t')?'\t':',';
   const hdrs=lines[0].split(sep).map(h=>h.trim().toLowerCase().replace(/['"]/g,''));
-  const fm={nome:'n',name:'n','área':'ar',area:'ar',cargo:'cg',tipo:'ta',tipoarea:'ta','salário':'sal',salario:'sal',salary:'sal',multiplicador:'mult',mult:'mult',bu:'bu'};
+  const fm={nome:'n',name:'n','Ã¡rea':'ar',area:'ar',cargo:'cg',tipo:'ta',tipoarea:'ta','salÃ¡rio':'sal',salario:'sal',salary:'sal',multiplicador:'mult',mult:'mult',bu:'bu'};
   const ne=[];
   for(let i=1;i<lines.length;i++){
     const vs=lines[i].split(sep).map(v=>v.trim().replace(/^["']|["']$/g,''));
