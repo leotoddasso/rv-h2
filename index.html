@@ -729,7 +729,6 @@ async function saveState(manual){
 }
 
 async function loadState(){
-  // tenta Supabase primeiro
   try{
     const row = await supaGet();
     if(row && row.data){
@@ -742,27 +741,11 @@ async function loadState(){
       const el = document.getElementById('save-status');
       if(el && row.updated_at){
         const dt = new Date(row.updated_at).toLocaleString('pt-BR');
-        el.textContent = `â Recuperado â Ãºltimo save: ${dt}`;
+        el.textContent = '✓ Recuperado — último save: '+dt;
         el.style.color = '#4ade80'; el.style.opacity = '1';
         setTimeout(()=>{ el.style.opacity='0'; }, 5000);
       }
       return true;
-    }
-  }catch(e){ console.warn('supabase load error', e); }
-
-  // fallback: window.storage
-  try{
-    for(const key of ['rv_state','rv_state_backup']){
-      const r = await window.storage.get(key);
-      if(r && r.value){
-        const d = JSON.parse(r.value);
-        if(d.employees) S.employees = d.employees;
-        if(d.multCfg)   S.multCfg   = d.multCfg;
-        if(d.cfg)       S.cfg       = d.cfg;
-        if(d.old)       S.old       = d.old;
-        if(d.nid)       S.nid       = d.nid;
-        return true;
-      }
     }
   }catch(e){}
   return false;
