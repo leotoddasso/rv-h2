@@ -449,7 +449,8 @@ function tMt(){
             if(!S.employees.some(e=>e.cg===cg))return'';
             return`<tr><td>${cgTag(cg)}</td>
               ${BUS.flatMap(bu=>{const m=S.multCfg[bu][cg];
-                return m?[`<td style="text-align:center;font-weight:700">${m.F}×</td>`,`<td style="text-align:center;color:#666">${m.M}×</td>`]:
+                const exists=S.employees.some(e=>e.bu===bu&&e.cg===cg);
+                return m&&exists?[`<td style="text-align:center;font-weight:700">${m.F}×</td>`,`<td style="text-align:center;color:#666">${m.M}×</td>`]:
                           [`<td class="tip" style="text-align:center">—</td>`,`<td class="tip" style="text-align:center">—</td>`];}).join('')}
             </tr>`;}).join('')}
         </tbody>
