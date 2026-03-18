@@ -732,7 +732,7 @@ async function loadState(){
   // tenta Supabase primeiro
   try{
     const row = await supaGet();
-    if(row && row.data){
+    if(row && row.data && row.data.employees && row.data.employees.length > 0){
       const d = row.data;
       if(d.employees) S.employees = d.employees;
       if(d.multCfg)   S.multCfg   = d.multCfg;
