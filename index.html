@@ -85,9 +85,9 @@ Chart.register(ChartDataLabels);
 const BUS=['H2Bet','Live','SeuBet','Poker Online'];
 const BUC={'H2Bet':'#7C3AED','Live':'#2563EB','SeuBet':'#EA580C','Poker Online':'#059669'};
 // Cargos exatamente como no CSV
-const CARGOS=['C-level','Head','Gerente','Especialista','Principal','Tech Lead','Coord'];
-const COR={'C-level':0,'Head':1,'Gerente':2,'Especialista':3,'Principal':4,'Tech Lead':5,'Coord':6};
-const CARGO_CLR={'C-level':'#059669','Head':'#2563EB','Gerente':'#EA580C','Especialista':'#EA580C','Principal':'#EA580C','Tech Lead':'#EA580C','Coord':'#9CA3AF'};
+const CARGOS=['C-level','Head','Gerente','Especialista','Principal','Tech Lead','Coord','Baseline'];
+const COR={'C-level':0,'Head':1,'Gerente':2,'Especialista':3,'Principal':4,'Tech Lead':5,'Coord':6,'Baseline':7};
+const CARGO_CLR={'C-level':'#059669','Head':'#2563EB','Gerente':'#EA580C','Especialista':'#EA580C','Principal':'#EA580C','Tech Lead':'#EA580C','Coord':'#9CA3AF','Baseline':'#6b7280'};
 const SENS=[50,60,70,80,90,100,110,120,130];
 const TABS=[
   {id:'mt',lb:'🎯 Metas & Matriz'},
@@ -198,7 +198,7 @@ let S={
     'Poker Online':{rec:32000000, lb:6000000, meta:{emp:{p:30,a:100},bu:{p:50,a:100},ar:{p:20,a:100}},piso:80,teto:120,d360:{on:false,sc:3.7}},
   },
   // Modelo antigo para comparação — por cargo
-  old:{'C-level':{bl:4,v:8},'Head':{bl:2,v:4},'Gerente':{bl:1,v:2},'Especialista':{bl:1,v:2},'Principal':{bl:1,v:1},'Tech Lead':{bl:1,v:2},'Coord':{bl:1,v:1}}
+  old:{'C-level':{bl:4,v:8},'Head':{bl:2,v:4},'Gerente':{bl:1,v:2},'Especialista':{bl:1,v:2},'Principal':{bl:1,v:1},'Tech Lead':{bl:1,v:2},'Coord':{bl:1,v:1},'Baseline':{bl:1,v:0}}
 };
 
 function applyMatrix(bu){S.employees.filter(e=>e.bu===bu).forEach(e=>{const m=S.multCfg[bu][e.cg];if(m)e.mult=(e.ta==='Fim'?m.F:m.M);});}
