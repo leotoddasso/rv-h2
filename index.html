@@ -216,7 +216,16 @@ const P1=n=>(+n*100).toFixed(1)+'%';
 function bbу(bu){return S.employees.filter(e=>e.bu===bu);}
 function atC(bu){const m=S.cfg[bu].meta,tp=m.emp.p+m.bu.p+m.ar.p;return tp?(m.emp.p*m.emp.a+m.bu.p*m.bu.a+m.ar.p*m.ar.a)/tp:0;}
 function det(sc){return sc>3.5?0:sc>=3?.1:.2}
-function bonAt(e,at){const c=S.cfg[e.bu];if(at<c.piso)return 0;const cap=Math.min(at,c.teto);let b=e.sal*(e.mult||2)*(cap/100);if(c.d360.on)b*=(1-det(c.d360.sc));return b;}
+function bonAt(e,at){
+  const c=S.cfg[e.bu];
+  if(at<c.piso) return 0;
+  let fator;
+  if(c.teto===c.piso){ fator=1; }
+  else{ fator=Math.min((at-c.piso)/(c.teto-c.piso),1); }
+  let b=e.sal*(e.mult||2)*fator;
+  if(c.d360.on)b*=(1-det(c.d360.sc));
+  return b;
+}
 function bon(e){return bonAt(e,atC(e.bu));}
 function poolBu(bu,at){return S.employees.filter(e=>e.bu===bu).reduce((s,e)=>s+bonAt(e,at!==undefined?at:atC(bu)),0);}
 function poolAll(at){return S.employees.reduce((s,e)=>s+bonAt(e,at!==undefined?at:atC(e.bu)),0);}
