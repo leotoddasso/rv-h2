@@ -704,10 +704,10 @@ function statePayload(){
 }
 
 async function saveState(manual){
+  if(!S.employees || S.employees.length===0) return false;
   const payload = statePayload();
   let ok = false;
   try{
-    // salva em duas chaves independentes para redundância
     await supaSet(payload);
     ok = true;
   }catch(e){ console.warn('storage save error',e); }
@@ -732,7 +732,7 @@ async function loadState(){
   // tenta Supabase primeiro
   try{
     const row = await supaGet();
-    if(row && row.data && row.data.employees && row.data.employees.length > 0){
+    if(row && row.data){
       const d = row.data;
       if(d.employees) S.employees = d.employees;
       if(d.multCfg)   S.multCfg   = d.multCfg;
