@@ -704,7 +704,6 @@ function statePayload(){
 }
 
 async function saveState(manual){
-  if(!S.employees||S.employees.length===0)return false;
   const payload = statePayload();
   let ok = false;
   try{
@@ -733,7 +732,7 @@ async function loadState(){
   // tenta Supabase primeiro
   try{
     const row = await supaGet();
-    if(row && row.data && row.data.employees && row.data.employees.length>0){
+    if(row && row.data){
       const d = row.data;
       if(d.employees) S.employees = d.employees;
       if(d.multCfg)   S.multCfg   = d.multCfg;
@@ -808,7 +807,8 @@ function render(){
 }
 
 function bindEvt(){
-  document.querySelectorAll('.tb').forEach(b=>b.addEventListener('click',()=>{S.tab=b.dataset.tab;render();}));
+  document.querySelectorAll('.tb').forEach(b=>b.addEventListener('click',()=>{S.tab=b.dataset.tab;// Inicializa: tenta carregar estado salvo, senão usa defaults
+loadState().then(()=>{ applyAll(); render(); });}));
   document.querySelectorAll('.ei').forEach(inp=>inp.addEventListener('change',()=>{
     const id=+inp.dataset.id,f=inp.dataset.f,e=S.employees.find(x=>x.id===id);
     if(e){
@@ -852,7 +852,7 @@ function parseCSV(txt){
   if(ne.length){S.employees=ne;render();}
 }
 
-render();
+loadState().then(()=>{ applyAll(); render(); });
 </script>
 </body>
 </html>
