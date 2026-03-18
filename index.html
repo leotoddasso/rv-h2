@@ -704,10 +704,11 @@ function statePayload(){
 }
 
 async function saveState(manual){
-  if(!S.employees || S.employees.length===0) return false;
+  if(!S.employees||S.employees.length===0)return false;
   const payload = statePayload();
   let ok = false;
   try{
+    // salva em duas chaves independentes para redundância
     await supaSet(payload);
     ok = true;
   }catch(e){ console.warn('storage save error',e); }
@@ -732,7 +733,7 @@ async function loadState(){
   // tenta Supabase primeiro
   try{
     const row = await supaGet();
-    if(row && row.data){
+    if(row && row.data && row.data.employees && row.data.employees.length>0){
       const d = row.data;
       if(d.employees) S.employees = d.employees;
       if(d.multCfg)   S.multCfg   = d.multCfg;
@@ -807,8 +808,7 @@ function render(){
 }
 
 function bindEvt(){
-  document.querySelectorAll('.tb').forEach(b=>b.addEventListener('click',()=>{S.tab=b.dataset.tab;// Inicializa: tenta carregar estado salvo, senão usa defaults
-loadState().then(()=>{ applyAll(); render(); });}));
+  document.querySelectorAll('.tb').forEach(b=>b.addEventListener('click',()=>{S.tab=b.dataset.tab;render();}));
   document.querySelectorAll('.ei').forEach(inp=>inp.addEventListener('change',()=>{
     const id=+inp.dataset.id,f=inp.dataset.f,e=S.employees.find(x=>x.id===id);
     if(e){
