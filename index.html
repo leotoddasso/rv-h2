@@ -468,12 +468,12 @@ function tMt(){
         <thead><tr><th>BU</th><th class="num">Receita</th><th class="num">Lucro Bruto</th><th class="num">Ating.</th><th class="num">Pool</th><th class="num">Pool/Receita</th><th class="num">Pool/LB</th></tr></thead>
         <tbody>
           ${BUS.map(bu=>{const c=S.cfg[bu],at=atC(bu),p=poolBu(bu);return`<tr>
-            <td>${buT(bu)}</td><td class="num">${R(recReal(bu))}</td><td class="num">${R(lbReal(bu))</td>
+            <td>${buT(bu)}</td><td class="num">${R(c.rec)}</td><td class="num">${R(c.lb)}</td>
             <td class="num" style="color:${BUC[bu]};font-weight:700">${Pp(at)}%</td>
             <td class="num" style="font-weight:600">${R(p)}</td>
             <td class="num">${recReal(bu)?P2(p/recReal(bu)):'—'}</td>
             <td class="num" style="font-weight:600;color:${semaforo(p/lbReal(bu))}">${lbReal(bu)?P2(p/lbReal(bu)):'—'}</td></tr>`;}).join('')}
-          <tr class="tr-tot"><td>GRUPO</td><td class="num">${R(totRecReal())}</td><td class="num">${R(totLbReal())}</td><td></td>
+          <tr class="tr-tot"><td>GRUPO</td><td class="num">${R(totR)}</td><td class="num">${R(totL)}</td><td></td>
             <td class="num">${R(poolAll())}</td><td class="num">${P2(poolAll()/totRecReal())}</td>
             <td class="num" style="font-weight:700">${P2(poolAll()/totLbReal())}</td></tr>
         </tbody>
