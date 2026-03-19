@@ -231,6 +231,11 @@ function poolBu(bu,at){return S.employees.filter(e=>e.bu===bu).reduce((s,e)=>s+b
 function poolAll(at){return S.employees.reduce((s,e)=>s+bonAt(e,at!==undefined?at:atC(e.bu)),0);}
 function totRec(){return BUS.reduce((s,bu)=>s+S.cfg[bu].rec,0);}
 function totLb(){return BUS.reduce((s,bu)=>s+S.cfg[bu].lb,0);}
+// Receita e LB realizados = budget × atingimento real
+function recReal(bu){return S.cfg[bu].rec*(atC(bu)/100);}
+function lbReal(bu){return S.cfg[bu].lb*(atC(bu)/100);}
+function totRecReal(){return BUS.reduce((s,bu)=>s+recReal(bu),0);}
+function totLbReal(){return BUS.reduce((s,bu)=>s+lbReal(bu),0);}
 
 // group by cargo, sorted by CARGOS order
 function grpByCg(es){
@@ -489,7 +494,7 @@ function tMt(){
 
 // ——— GRUPO ———
 function tGr(){
-  const tot=poolAll(),rec=totRec(),lb=totLb(),n=S.employees.length;
+  const tot=poolAll(),rec=totRecReal(),lb=totLbReal(),recBudget=totRec(),lbBudget=totLb(),n=S.employees.length;
   const cgs=grpByCg(S.employees);
   return`
   <div class="flex fac fjb mb3">
@@ -498,8 +503,8 @@ function tGr(){
   </div>
   <div class="g5 mb4">
     <div class="kpi"><div class="kl">Pool Total</div><div class="kv">${Rk(tot)}</div><div class="ks">${P2(tot/rec)} da receita</div></div>
-    <div class="kpi"><div class="kl">Receita Total</div><div class="kv">${Rk(rec)}</div><div class="ks">${n} elegíveis</div></div>
-    <div class="kpi"><div class="kl">Lucro Bruto Total</div><div class="kv">${Rk(lb)}</div><div class="ks">estimado</div></div>
+    <div class="kpi"><div class="kl">Receita Realizada</div><div class="kv">${Rk(rec)}</div><div class="ks">Budget: ${Rk(recBudget)}</div></div>
+    <div class="kpi"><div class="kl">Lucro Bruto Realizado</div><div class="kv">${Rk(lb)}</div><div class="ks">Budget: ${Rk(lbBudget)}</div></div>
     <div class="kpi"><div class="kl">Pool / Lucro Bruto</div><div class="kv" style="color:${semaforo(tot/lb)}">${P2(tot/lb)}</div><div class="ks">distribuição</div></div>
     <div class="kpi"><div class="kl">Bônus Médio</div><div class="kv">${n?R(tot/n):'—'}</div><div class="ks">por elegível</div></div>
   </div>
@@ -550,7 +555,7 @@ function tGr(){
 // ——— BU ———
 function tBU(bu){
   const es=bbу(bu),c=S.cfg[bu],at=atC(bu),col=BUC[bu];
-  const pool=poolBu(bu,at),nb=es.length,rec=c.rec,lb=c.lb;
+  const pool=poolBu(bu,at),nb=es.length,rec=recReal(bu),lb=lbReal(bu),recBudget=c.rec,lbBudget=c.lb;
   const fim=es.filter(e=>e.ta==='Fim').reduce((s,e)=>s+bon(e),0);
   const meio=es.filter(e=>e.ta==='Meio').reduce((s,e)=>s+bon(e),0);
   const cgs=grpByCg(es);
@@ -566,8 +571,8 @@ function tBU(bu){
   <div class="g5 mb4">
     <div class="kpi"><div class="kl">Pool de Bônus</div><div class="kv" style="color:${col}">${R(pool)}</div><div class="ks">${rec?P2(pool/rec):'-'} da receita</div></div>
     <div class="kpi"><div class="kl">Bônus Médio</div><div class="kv">${nb?R(pool/nb):'—'}</div><div class="ks">${nb} elegíveis</div></div>
-    <div class="kpi"><div class="kl">Receita (Budget)</div><div class="kv">${Rk(rec)}</div><div class="ks">anual</div></div>
-    <div class="kpi"><div class="kl">Lucro Bruto</div><div class="kv">${Rk(lb)}</div><div class="ks">estimado</div></div>
+    <div class="kpi"><div class="kl">Receita Realizada</div><div class="kv">${Rk(rec)}</div><div class="ks">Budget: ${Rk(recBudget)}</div></div>
+    <div class="kpi"><div class="kl">Lucro Bruto Realizado</div><div class="kv">${Rk(lb)}</div><div class="ks">Budget: ${Rk(lbBudget)}</div></div>
     <div class="kpi"><div class="kl">Pool / Lucro Bruto</div><div class="kv" style="color:${semaforo(pool/lb)}">${lb?P2(pool/lb):'—'}</div>
       <div class="pbar"><div class="pfill" style="width:${Math.min(100,(pool/lb)*500)}%;background:${semaforo(pool/lb)}"></div></div></div>
   </div>
